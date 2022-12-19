@@ -78,7 +78,7 @@ in your project directory:
 <summary>
 Click to show/hide file contents
 </summary>
-~~~
+```json
 {
   "scripts": {
     "lint": "./node_modules/.bin/eslint",
@@ -98,5 +98,5 @@ Click to show/hide file contents
     "jest": "^24.9.0"
   }
 }
-~~~
+```
 </details>
