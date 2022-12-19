@@ -121,7 +121,7 @@ module.exports = {
 };
 
 </pre>
-<details>
+</details>
 
 ### `.eslintrc.js`
 
@@ -166,7 +166,7 @@ module.exports = {
 };
 
 </pre>
-<details>
+</details>
 
 
 ### Finally...
