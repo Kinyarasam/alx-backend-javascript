@@ -7,7 +7,7 @@ For this project, we expect you to look at these concepts:
 - [Software Linter](https://alx-intranet.hbtn.io/concepts/542)
 
 ---
-[img](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2019/12/08806026ef621f900121.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20221219%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221219T072939Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=11c23ecc35b028a5817fd8a604dbc6fb01915d97b4fd0d1ab666ec9d1b36817f)
+![08806026ef621f900121.png](./asset/08806026ef621f900121.png)
 
 ## Resources
 
@@ -17,7 +17,7 @@ For this project, we expect you to look at these concepts:
 - [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 - [Default parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters)
 - [Rest parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters)
-- [Javascript ES^ --- Iterables and Iterators](https://towardsdatascience.com/javascript-es6-iterables-and-iterators-de18b54f4d4?gi=13e736e7df4f)
+- [Javascript ES6 --- Iterables and Iterators](https://towardsdatascience.com/javascript-es6-iterables-and-iterators-de18b54f4d4?gi=13e736e7df4f)
 
 ## Learning Objectives
 
@@ -76,7 +76,28 @@ in your project directory:
 ### `package.json`
 <details>
 <pre>
-code
+
+{
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint",
+    "check-lint": "lint [0-9]*.js",
+    "dev": "npx babel-node",
+    "test": "jest",
+    "full-test": "./node_modules/.bin/eslint [0-9]*.js && jest"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/node": "^7.8.0",
+    "@babel/preset-env": "^7.6.0",
+    "eslint": "^6.4.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.17.0",
+    "jest": "^24.9.0"
+  }
+}
+
+
 </pre>
 <summary>
 Click to show/hide file contents
