@@ -75,6 +75,7 @@ in your project directory:
 
 ### `package.json`
 <details>
+<pre>
 ```
 
 {
@@ -99,6 +100,7 @@ in your project directory:
 
 
 ```
+</pre>
 <summary>
 Click to show/hide file contents
 </summary>
