@@ -78,6 +78,7 @@ in your project directory:
 <summary>
 Click to show/hide file contents
 </summary>
+<pre>
 {
 	"scripts": {
 		"lint": "./node_modules/.bin/eslint",
@@ -97,4 +98,5 @@ Click to show/hide file contents
 		"jest": "^24.9.0"
 	}
 }
+</pre>
 </details>
