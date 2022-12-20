@@ -1,7 +1,7 @@
-import signUpUser from "./4-user-promise";
-import uploadPhoto from "./5-photo-reject";
+import signUpUser from './4-user-promise';
+import uploadPhoto from './5-photo-reject';
 
-export default function handleProfileSignup(firstName, lastName, fileName) {
+export default function handleProfileSignup (firstName, lastName, fileName) {
   return Promise
     .allSettled([
       signUpUser(firstName, lastName),
@@ -10,7 +10,7 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
     .then((res) => (
       res.map((val) => ({
         status: val.status,
-        value: val.status === 'fulfilled' ? val.value : String(val.reason),
+        value: val.status === 'fulfilled' ? val.value : String(val.reason)
       }))
     ));
 }
