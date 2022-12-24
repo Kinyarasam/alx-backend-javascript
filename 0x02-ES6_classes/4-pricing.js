@@ -57,12 +57,12 @@ export default class Pricing {
   }
 
   /**
-   * Returns a string representation of the price in the format amount currency_name (currency_code).
+   * Returns a string representation of the price in the format amount currency_name(currency_code).
    *
    * @returns {string} The string representation of the price.
    */
   displayFullPrice() {
-    return `${this._amount} ${this._currency.name} (${this._currency.code})`
+    return `${this._amount} ${this._currency.name} (${this._currency.code})`;
   }
 
   /**
