@@ -41,7 +41,8 @@ export default class EVCar extends Car {
   }
 
   /**
-   * Overrides the cloneCAr function of the Car class to return a new instance of the car class instead of EVCar.
+   * Overrides the cloneCAr function of the Car class
+   * to return a new instance of the car class instead of EVCar.
    *
    * @returns {Car} A new instance of the Car class.
    */
