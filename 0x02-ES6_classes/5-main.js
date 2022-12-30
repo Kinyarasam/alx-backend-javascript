@@ -9,7 +9,6 @@ class TestBuilding extends Building {}
 
 try {
   new TestBuilding(200);
-}
-catch (err) {
+} catch (err) {
   console.log(err);
 }
