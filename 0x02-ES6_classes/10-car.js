@@ -7,9 +7,9 @@ export default class Car {
   /**
    * Constructor
    *
-   * @param {string} brand - 
-   * @param {string} motor -
-   * @param {string} color -
+   * @param {string} brand - The brand of the car.
+   * @param {string} motor - The motor of the car.
+   * @param {string} color - The color of the car.
    */
   constructor(brand, motor, color) {
     this.brand = brand;
@@ -98,6 +98,9 @@ export default class Car {
   }
 
   /**
+   * Clone the current car instance.
+   *
+   * @returns {Car} A new instance of the car with the same brand motor and color.
    */
   cloneCar() {
     const Species = this.constructor[Symbol.species];
