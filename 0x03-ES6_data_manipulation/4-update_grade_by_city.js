@@ -16,11 +16,11 @@ export default function updateStudentGradeByCity(students, city, newGrades) {
     .filter((student) => student.location === city)
     .map((student) => {
       const grade = newGrades.find((g) => g.studentId === student.id);
-    return {
-      id: student.id,
-      firstName: student.firstName,
-      location: student.location,
-      grade: grade ? grade.grade : 'N/A',
-    };
-  });
+      return {
+        id: student.id,
+        firstName: student.firstName,
+        location: student.location,
+        grade: grade ? grade.grade : 'N/A',
+      };
+    });
 }
