@@ -11,7 +11,7 @@
  */
 export default function createInt8TypedArray(length, position, value) {
   // Create an ArrayBuffer with the specified length.
-  const buffer = new ArrayBuffer(length);
+  const buffer = new DataView(new ArrayBuffer(length), 0, length);
 
   // Check if the position is within the range of the buffer.
   if (position < 0 || position >= buffer.byteLength) {
