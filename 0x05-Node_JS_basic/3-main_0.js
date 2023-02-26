@@ -6,4 +6,4 @@ countStudents('npe.csv')
   })
   .catch((error) => {
     console.log(error);
-  })
+  });
