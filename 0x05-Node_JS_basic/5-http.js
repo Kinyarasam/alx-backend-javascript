@@ -5,7 +5,6 @@
  * @exports app
  */
 const http = require('http');
-const { exec } = require('child_process');
 
 /**
  * Port Number
@@ -17,29 +16,25 @@ const PORT = 1245;
  * HTTP server
  * @const
  */
-const app = http.createServer((req, res) => {
+const app = http.createServer(async (req, res) => {
+  res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
-  if (req.url === '/students') {
-    const cmd = 'const countStudents = require(\'./3-read_file_async\');'
-      + `countStudents('${process.argv[2]}')`
-      + '.catch((err) => console.error(err.message))';
-    exec(`echo "${cmd}" | ${process.execPath}`, (err, stdout, stderr) => {
-      if (stdout) {
-        const content = stdout.toString().slice(0, -1);
-        res.end(`This is the list of our students\n${content}`);
-      } else if (stderr) {
-        res.statusCode = 404;
-        const content = stderr.toString().slice(0, -1);
-        res.end(`This is the list of our students\n${content}`);
-      } else if (err) {
-        res.statusCode = 500;
-        res.end('Internal Server Error');
-      }
-    });
-  } else {
-    const resText = 'Hello Holberton School!';
-    res.end(resText);
+
+  const { url } = req;
+
+  if (url === '/') {
+    res.write('Hello Holberton School!');
+  } else if (url === '/students') {
+    res.write('This is the list of our students\n');
+    try {
+      const students = await countStudents(DATABASE);
+      res.end(`${students.join('\n')}`);
+    } catch (error) {
+      res.end(error.message);
+    }
   }
+  res.statusCode = 404;
+  res.end();
 });
 
 /**
