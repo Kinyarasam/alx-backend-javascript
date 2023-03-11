@@ -1,33 +1,22 @@
-#!/usr/bin/env node
-/**
- * @module 1-calcul.js
- */
+function calculateNumber(type, a, b) {
+  const num1 = Number(a);
+  const num2 = Number(b);
 
-/**
- * Simple Calculator.
- *
- * @param {number} a - First number
- * @param {number} b - second number
- * @param {String} type - Operation.
- *
- * @returns {number} The result from the operation.
- */
-const calculateNumber = (type, a, b) => {
-  const A = Math.round(a);
-  const B = Math.round(b);
-  let result = 0;
-
-  if (type === 'SUM') {
-    result = A + B;
-  }
-  if (type === 'SUBTRACT') {
-    result = A - B;
-  }
-  if (type === 'DIVIDE') {
-    result = (B !== 0) ? A / B : 'Error';
+  if (Number.isNaN(num1) || Number.isNaN(num2)) {
+    throw TypeError;
   }
   
-  return result;
-};
-
+  if (type === 'SUM') {
+    return (Math.round(num1) + Math.round(num2));
+  } else if(type === 'SUBTRACT') {
+    return (Math.round(num1) - Math.round(num2));
+  } else if (type === 'DIVIDE') {
+    if (Math.round(num2) === 0) {
+      return ('Error');
+    }
+    return (Math.round(num1) / Math.round(num2));
+  } else {
+    throw TypeError;
+  }
+}
 module.exports = calculateNumber;

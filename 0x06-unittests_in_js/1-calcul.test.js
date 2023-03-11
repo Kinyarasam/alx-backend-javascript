@@ -1,50 +1,46 @@
-#!/usr/bin/env node
-/**
- * Tests for `1-calcul` module
- * @module 1-calcul.test
- */
-
 const assert = require('assert');
 const calculateNumber = require('./1-calcul');
 
-describe('calculateNumber', () => {
-  it('Check for addition of two integer numbers', () => {
-    assert.equal(calculateNumber('SUM', 1, 2), 3);
+describe('test calculate number', () => {
+  it('checks the rounded sum', () => {
+    assert.equal(calculateNumber('SUM', 1, 3), 4);
+    assert.equal(calculateNumber('SUM', 1, 3.7), 5);
+    assert.equal(calculateNumber('SUM', 1.2, 3.7), 5);
+    assert.equal(calculateNumber('SUM', 1.5, 3.7), 6);
+    assert.equal(calculateNumber('SUM', -1, 3), 2);
+    assert.equal(calculateNumber('SUM', -1, -4), -5);
+    assert.equal(calculateNumber('SUM', -1.2, -1.4), -2);
+    assert.equal(calculateNumber('SUM', -2, 3.2), 1);
   });
-  it('Check for addition of two float numbers a.b where b < 5', () => {
-    assert.equal(calculateNumber('SUM', 1.1, 2.2), 3);
+
+  it('checks the rounded difference', () => {
+    assert.equal(calculateNumber('SUBTRACT', 1, 3), -2);
+    assert.equal(calculateNumber('SUBTRACT', 3.3, 1), 2);
+    assert.equal(calculateNumber('SUBTRACT', 1.4, 4.5), -4);
+    assert.equal(calculateNumber('SUBTRACT', 1.5, 3.7), -2);
+    assert.equal(calculateNumber('SUBTRACT', -1, 3), -4);
+    assert.equal(calculateNumber('SUBTRACT', -1, -4), 3);
+    assert.equal(calculateNumber('SUBTRACT', -1.2, -1.4), 0);
+    assert.equal(calculateNumber('SUBTRACT', -2, 3.2), -5);
   });
-  it('Check for addition of two float numbers a.b where b >= 5', () => {
-    assert.equal(calculateNumber('SUM', 1.7, 2.9), 5);
+
+  it('checks the rounded division', () => {
+    assert.equal(calculateNumber('DIVIDE', 6, 2), 3);
+    assert.equal(calculateNumber('DIVIDE', 3.3, 1), 3);
+    assert.equal(calculateNumber('DIVIDE', 1.4, 4.5), 0.2);
+    assert.equal(calculateNumber('DIVIDE', 1.7, 3.7), 0.5);
+    assert.equal(calculateNumber('DIVIDE', -6, 3), -2);
+    assert.equal(calculateNumber('DIVIDE', -6, -3), 2);
+    assert.equal(calculateNumber('DIVIDE', -6.2, -3.4), 2);
+    assert.equal(calculateNumber('DIVIDE', -2, 2.1), -1);
+    assert.equal(calculateNumber('DIVIDE', -2, 0), 'Error');
   });
-  it('Check for addition of two float numbers a.b where b = 5', () => {
-    assert.equal(calculateNumber('SUM', 1.5, 2.5), 5);
-  });
-  it('Check for subtraction of two integer numbers', () => {
-    assert.equal(calculateNumber('SUBTRACT', 1, 2), -1);
-  });
-  it('Check for subtraction of two float numbers a.b where b < 5', () => {
-    assert.equal(calculateNumber('SUBTRACT', 1.1, 2.2), -1);
-  });
-  it('Check for subtraction of two float numbers a.b where b >= 5', () => {
-    assert.equal(calculateNumber('SUBTRACT', 1.7, 2.9), -1);
-  });
-  it('Check for subtraction of two float numbers a.b where b = 5', () => {
-    assert.equal(calculateNumber('SUBTRACT', 1.5, 2.5), -1);
-  });
-  it('Check for division of two integer numbers', () => {
-    assert.equal(calculateNumber('DIVIDE', 3, 2), 1.5);
-  });
-  it('Check for division of two float numbers a.b where b < 5', () => {
-    assert.equal(calculateNumber('DIVIDE', 1.1, 2.2), 0.5);
-  });
-  it('Check for division of two float numbers a.b where b >= 5', () => {
-    assert.equal(calculateNumber('DIVIDE', 1.7, 3.9), 0.5);
-  });
-  it('Check for division of two float numbers a.b where b = 5', () => {
-    assert.equal(calculateNumber('DIVIDE', 1.5, 3.5), 0.5);
-  });
-  it('Check for zero division error', () => {
-    assert.equal(calculateNumber('DIVIDE', 2, 0.4), 'Error');
+
+
+  it('checks the NaN number', () => {
+    assert.throws(() => calculateNumber('SUM', NaN, 5), '[Function: TypeError]');
+    assert.throws(() => calculateNumber('SUBTRACT', NaN, 5), '[Function: TypeError]');
+    assert.throws(() => calculateNumber('DIVIDE', NaN, 5), '[Function: TypeError]');
+    assert.throws(() => calculateNumber('shhh', NaN, 5), '[Function: TypeError]');
   });
 });
