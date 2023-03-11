@@ -1,21 +1,13 @@
-#!/usr/bin/env node
-/**
- * Creates a small http server using the http module
- * @module 5-http
- * @exports app
- */
 const http = require('http');
 
-/**
- * Port Number
- * @const {number}
- */
-const PORT = 1245;
+const args = process.argv.slice(2);
+const countStudents = require('./3-read_file_async');
 
-/**
- * HTTP server
- * @const
- */
+const DATABASE = args[0];
+
+const hostname = '127.0.0.1';
+const port = 1245;
+
 const app = http.createServer(async (req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
@@ -37,16 +29,9 @@ const app = http.createServer(async (req, res) => {
   res.end();
 });
 
-/**
- * Listen on Port
- * @function
- * @name listen
- * @memberof module:5-http~app
- * @param {number} port - Port number
- * @param {Function} callback - Callback function
- */
-app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}`);
+app.listen(port, hostname, () => {
+  //   console.log(`Server running at http://${hostname}:${port}/`);
+
 });
 
 module.exports = app;
