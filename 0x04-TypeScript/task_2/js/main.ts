@@ -48,7 +48,11 @@ const executeWork = (employee: Teacher | Director): string => {
 
   isDirector(employee) ? res = (employee as Director).workDirectorTasks() : res = (employee as Teacher).workTeacherTasks();
   return res;
-}
+};
+
+type Subjects = 'Math' | 'History';
+
+const teachClass = (todayClass: Subjects): string => todayClass === 'Math' ? 'Teaching Math' : 'Teaching History';
 
 console.log(createEmployee(200));
 console.log(createEmployee(1000));
@@ -56,3 +60,6 @@ console.log(createEmployee('$500'));
 
 console.log(createEmployee(200));
 console.log(createEmployee(1000));
+
+console.log(teachClass('Math'));
+console.log(teachClass('History'));
